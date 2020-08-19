@@ -26,9 +26,9 @@ public class OrderRestController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    JsonResponse getOrdersList() {
-        return new JsonResponse(orderService.getAll());
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    List<Order> getOrdersList() {
+        return orderService.getAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

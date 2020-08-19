@@ -26,9 +26,9 @@ public class ProductRestController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    JsonResponse getProductsList() {
-        return new JsonResponse(productService.getAll());
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    List<Product> getProductsList() {
+        return productService.getAll();
     }
 
     @CrossOrigin
