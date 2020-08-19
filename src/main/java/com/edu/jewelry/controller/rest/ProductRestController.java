@@ -19,31 +19,37 @@ public class ProductRestController {
     @Autowired
     ProductServiceImpl productService;
 
+    @CrossOrigin
     @RequestMapping("/hello")
     String getHello() {
         return "Hello from product rest controller";
     }
 
+    @CrossOrigin
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     JsonResponse getProductsList() {
         return new JsonResponse(productService.getAll());
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     Product getProduct(@PathVariable("id") String id) {
         return productService.get(id);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     Product deleteProduct(@PathVariable("id") String id){
         return productService.delete(id);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "", method = RequestMethod.POST)
     Product createProduct(@RequestBody Product product){
         return productService.create(product);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "", method = RequestMethod.PUT)
     Product updateProduct(@RequestBody Product product){
         return productService.update(product);
