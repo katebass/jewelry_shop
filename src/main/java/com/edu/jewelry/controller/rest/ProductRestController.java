@@ -5,13 +5,15 @@ package com.edu.jewelry.controller.rest;
  */
 
 import com.edu.jewelry.model.Product;
+import com.edu.jewelry.responses.JsonResponse;
 import com.edu.jewelry.service.product.impls.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/product")
+@RequestMapping("/api/products")
 @RestController
 public class ProductRestController {
     @Autowired
@@ -22,9 +24,9 @@ public class ProductRestController {
         return "Hello from product rest controller";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    List<Product> getProductsList() {
-        return productService.getAll();
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    JsonResponse getProductsList() {
+        return new JsonResponse(productService.getAll());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -37,12 +39,12 @@ public class ProductRestController {
         return productService.delete(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     Product createProduct(@RequestBody Product product){
         return productService.create(product);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     Product updateProduct(@RequestBody Product product){
         return productService.update(product);
     }

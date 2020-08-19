@@ -5,8 +5,11 @@ package com.edu.jewelry.controller.rest;
  */
 
 import com.edu.jewelry.model.Material;
+import com.edu.jewelry.responses.JsonResponse;
 import com.edu.jewelry.service.material.impls.MaterialServiceImpl;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +25,9 @@ public class MaterialRestController {
         return "Hello from material rest controller";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    List<Material> getMaterialsList() {
-        return materialService.getAll();
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    JsonResponse getMaterialsList() {
+        return new JsonResponse(materialService.getAll());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -37,12 +40,12 @@ public class MaterialRestController {
         return materialService.delete(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     Material createMaterial(@RequestBody Material material){
         return materialService.create(material);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     Material updateMaterial(@RequestBody Material material){
         return materialService.update(material);
     }

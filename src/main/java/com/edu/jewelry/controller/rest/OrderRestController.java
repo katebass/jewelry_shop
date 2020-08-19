@@ -5,13 +5,15 @@ package com.edu.jewelry.controller.rest;
  */
 
 import com.edu.jewelry.model.Order;
+import com.edu.jewelry.responses.JsonResponse;
 import com.edu.jewelry.service.order.impls.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/order")
+@RequestMapping("/api/orders")
 @RestController
 public class OrderRestController {
 
@@ -23,9 +25,9 @@ public class OrderRestController {
         return "Hello from order rest controller";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    List<Order> getOrdersList() {
-        return orderService.getAll();
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    JsonResponse getOrdersList() {
+        return new JsonResponse(orderService.getAll());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -38,12 +40,12 @@ public class OrderRestController {
         return orderService.delete(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     Order createOrder(@RequestBody Order order){
         return orderService.create(order);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     Order updateOrder(@RequestBody Order order){
         return orderService.update(order);
     }
