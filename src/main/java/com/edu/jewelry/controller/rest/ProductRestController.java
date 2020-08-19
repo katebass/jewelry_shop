@@ -5,10 +5,8 @@ package com.edu.jewelry.controller.rest;
  */
 
 import com.edu.jewelry.model.Product;
-import com.edu.jewelry.responses.JsonResponse;
 import com.edu.jewelry.service.product.impls.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

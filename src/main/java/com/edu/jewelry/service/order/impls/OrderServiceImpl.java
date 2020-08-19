@@ -3,7 +3,6 @@ package com.edu.jewelry.service.order.impls;
 import com.edu.jewelry.datastorage.DataFake;
 import com.edu.jewelry.model.Order;
 import com.edu.jewelry.repository.OrderRepository;
-import com.edu.jewelry.repository.GroupRepository;
 import com.edu.jewelry.service.order.interfaces.IOrderBusinessInterface;
 import com.edu.jewelry.service.order.interfaces.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +20,6 @@ public class OrderServiceImpl implements IOrderService, IOrderBusinessInterface 
 //    DaoOrderServiceImpl daoOrderService;
     @Autowired
     OrderRepository orderRepository;
-    @Autowired
-    GroupRepository groupRepository;
     @Autowired
     DataFake dataFake;
 
@@ -61,8 +58,6 @@ public class OrderServiceImpl implements IOrderService, IOrderBusinessInterface 
     public void refresh() {
         orderRepository.deleteAll();
         orderRepository.saveAll(dataFake.getOrders());
-        groupRepository.deleteAll();
-        groupRepository.saveAll(dataFake.getGroups());
     }
 
     @Override

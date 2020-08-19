@@ -1,6 +1,5 @@
 package com.edu.jewelry.dao.material.interfaces;
 
-import com.edu.jewelry.model.Cafedra;
 import com.edu.jewelry.model.Material;
 
 import java.util.List;

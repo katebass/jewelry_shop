@@ -8,39 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 
 @Repository
 public class DataFake {
     Logger logger = LogManager.getLogger(DataFake.class);
 
-    @Autowired
-    CafedraRepository cafedraRepository;
-    @Autowired
-    GroupRepository groupRepository;
+
     @Autowired
     MaterialRepository materialRepository;
     @Autowired
     ProductRepository productRepository;
     @Autowired
     OrderRepository orderRepository;
-
-    private List<Cafedra> cafedras = new LinkedList<>(Arrays.asList(
-            new Cafedra("1", "IPZ", "Ivanov", "Engineering"),
-            new Cafedra("2", "KN", "Petrov", "MSOffice"),
-            new Cafedra("3", "IT", "Pshek", "Lalala")
-    ));
-
-    private List<Group> groups = new LinkedList<>(Arrays.asList(
-            new Group("1", "123", "ChNU", cafedras.get(0)),
-            new Group("2", "456", "UzhNU", cafedras.get(1)),
-            new Group("3", "789", "KhNU", cafedras.get(2))
-    ));
 
     private List<Material> materials = new LinkedList<>(Arrays.asList(
             new Material("gold", 63.55),
@@ -65,10 +47,7 @@ public class DataFake {
 
     @PostConstruct
     private void init() {
-        cafedraRepository.deleteAll();
-        cafedraRepository.saveAll(cafedras);
-        groupRepository.deleteAll();
-        groupRepository.saveAll(groups);
+        logger.info("Initializing fake data");
 
         materialRepository.deleteAll();
         materialRepository.saveAll(materials);
@@ -78,22 +57,6 @@ public class DataFake {
 
         orderRepository.deleteAll();
         orderRepository.saveAll(orders);
-    }
-
-    public List<Cafedra> getCafedras() {
-        return cafedras;
-    }
-
-    public void setCafedras(List<Cafedra> cafedras) {
-        this.cafedras = cafedras;
-    }
-
-    public List<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroup(List<Group> groups) {
-        this.groups = groups;
     }
 
     public List<Material> getMaterials() {
