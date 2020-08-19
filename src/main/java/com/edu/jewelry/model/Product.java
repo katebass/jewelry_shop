@@ -19,18 +19,20 @@ public class Product {
     private String type;
     private Double weight;
     private Double price;
+    private String image;
     private LocalDateTime createdAt, updatedAt;
 
     public Product() {
     }
 
-    public Product(String material_id, String name, String type, Double weight, Double price) {
+    public Product(String material_id, String name, String type, Double weight, Double price, String image) {
         this.id = UUID.randomUUID().toString();
         this.material_id = material_id;
         this.name = name;
         this.type = type;
         this.weight = weight;
         this.price = price;
+        this.image = image;
         this.updatedAt = LocalDateTime.now();
         this.createdAt = LocalDateTime.now();
     }
@@ -97,5 +99,13 @@ public class Product {
 
     public void setMaterial_id(String material_id) {
         this.material_id = material_id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

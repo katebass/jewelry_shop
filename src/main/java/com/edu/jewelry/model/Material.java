@@ -17,15 +17,17 @@ public class Material {
     private String id;
     private String name;
     private Double pricePerGram;
+    private String image;
     private LocalDateTime createdAt, updatedAt;
 
     public Material() {
     }
 
-    public Material(String name, Double pricePerGram) {
+    public Material(String name, Double pricePerGram, String image) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.pricePerGram = pricePerGram;
+        this.image = image;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
@@ -52,6 +54,14 @@ public class Material {
 
     public void setPricePerGram(Double pricePerGram) {
         this.pricePerGram = pricePerGram;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public LocalDateTime getCreatedAt() {
