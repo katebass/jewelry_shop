@@ -31,6 +31,8 @@ public class Product {
         this.type = type;
         this.weight = weight;
         this.price = price;
+        this.updatedAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now();
     }
 
     public String getId() {

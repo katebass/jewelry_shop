@@ -31,6 +31,16 @@ public class Order {
         this.customerName = customerName;
         this.customerPatronymic = customerPatronymic;
         this.customerSurname = customerSurname;
+        this.updatedAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getSaleDate() {

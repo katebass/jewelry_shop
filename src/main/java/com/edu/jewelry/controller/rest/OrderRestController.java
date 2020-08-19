@@ -20,6 +20,7 @@ public class OrderRestController {
     @Autowired
     OrderServiceImpl orderService;
 
+    @CrossOrigin
     @RequestMapping("/hello")
     String getHello() {
         return "Hello from order rest controller";
@@ -31,21 +32,25 @@ public class OrderRestController {
         return orderService.getAll();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     Order getOrder(@PathVariable("id") String id) {
         return orderService.get(id);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     Order deleteOrder(@PathVariable("id") String id){
         return orderService.delete(id);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "", method = RequestMethod.POST)
     Order createOrder(@RequestBody Order order){
         return orderService.create(order);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "", method = RequestMethod.PUT)
     Order updateOrder(@RequestBody Order order){
         return orderService.update(order);
