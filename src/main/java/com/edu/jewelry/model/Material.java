@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 @Document
 public class Material {
@@ -21,23 +22,12 @@ public class Material {
     public Material() {
     }
 
-    public Material(String id, String name, Double pricePerGram, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
-        this.name = name;
-        this.pricePerGram = pricePerGram;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
     public Material(String name, Double pricePerGram) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.pricePerGram = pricePerGram;
-    }
-
-    public Material(String id, String name, Double pricePerGram) {
-        this.id = id;
-        this.name = name;
-        this.pricePerGram = pricePerGram;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     public String getId() {

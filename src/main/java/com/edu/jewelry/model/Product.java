@@ -8,6 +8,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Document
 public class Product {
     @Id
@@ -22,29 +24,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(String id, String material_id, String name, String type, Double weight,
-                   Double price, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
-        this.material_id = material_id;
-        this.name = name;
-        this.type = type;
-        this.weight = weight;
-        this.price = price;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
-    public Product(String id, String material_id, String name, String type,
-                   Double weight, Double price) {
-        this.id = id;
-        this.material_id = material_id;
-        this.name = name;
-        this.type = type;
-        this.weight = weight;
-        this.price = price;
-    }
-
     public Product(String material_id, String name, String type, Double weight, Double price) {
+        this.id = UUID.randomUUID().toString();
         this.material_id = material_id;
         this.name = name;
         this.type = type;

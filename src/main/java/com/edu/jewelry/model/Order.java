@@ -8,6 +8,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Document
 public class Order {
     @Id
@@ -22,44 +24,13 @@ public class Order {
     public Order() {
     }
 
-    public Order(String id, String product_id, String saleDate, String customerName,
-                 String customerPatronymic, String customerSurname,
-                 LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
+    public Order(String product_id, String saleDate, String customerName, String customerPatronymic, String customerSurname) {
+        this.id = UUID.randomUUID().toString();
         this.product_id = product_id;
         this.saleDate = saleDate;
         this.customerName = customerName;
         this.customerPatronymic = customerPatronymic;
         this.customerSurname = customerSurname;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
-    public Order(String id, String product_id, String saleDate, String customerName,
-                 String customerPatronymic, String customerSurname) {
-        this.id = id;
-        this.product_id = product_id;
-        this.saleDate = saleDate;
-        this.customerName = customerName;
-        this.customerPatronymic = customerPatronymic;
-        this.customerSurname = customerSurname;
-    }
-
-    public Order(String product_id, String saleDate, String customerName,
-                 String customerPatronymic, String customerSurname) {
-        this.product_id = product_id;
-        this.saleDate = saleDate;
-        this.customerName = customerName;
-        this.customerPatronymic = customerPatronymic;
-        this.customerSurname = customerSurname;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getSaleDate() {

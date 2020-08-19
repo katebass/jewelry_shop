@@ -2,16 +2,22 @@ package com.edu.jewelry.datastorage;
 
 import com.edu.jewelry.model.*;
 import com.edu.jewelry.repository.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 @Repository
 public class DataFake {
+    Logger logger = LogManager.getLogger(DataFake.class);
 
     @Autowired
     CafedraRepository cafedraRepository;
@@ -66,8 +72,10 @@ public class DataFake {
 
         materialRepository.deleteAll();
         materialRepository.saveAll(materials);
+
         productRepository.deleteAll();
         productRepository.saveAll(products);
+
         orderRepository.deleteAll();
         orderRepository.saveAll(orders);
     }
