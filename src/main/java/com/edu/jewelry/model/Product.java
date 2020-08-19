@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class Product {
     @Id
     private String id;
-    private Material material;
+    private String material_id;
     private String name;
     private String type;
     private Double weight;
@@ -22,10 +22,10 @@ public class Product {
     public Product() {
     }
 
-    public Product(String id, Material material, String name, String type, Double weight,
+    public Product(String id, String material_id, String name, String type, Double weight,
                    Double price, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.material = material;
+        this.material_id = material_id;
         this.name = name;
         this.type = type;
         this.weight = weight;
@@ -34,18 +34,18 @@ public class Product {
         this.updatedAt = updatedAt;
     }
 
-    public Product(String id, Material material, String name, String type,
+    public Product(String id, String material_id, String name, String type,
                    Double weight, Double price) {
         this.id = id;
-        this.material = material;
+        this.material_id = material_id;
         this.name = name;
         this.type = type;
         this.weight = weight;
         this.price = price;
     }
 
-    public Product(Material material, String name, String type, Double weight, Double price) {
-        this.material = material;
+    public Product(String material_id, String name, String type, Double weight, Double price) {
+        this.material_id = material_id;
         this.name = name;
         this.type = type;
         this.weight = weight;
@@ -58,14 +58,6 @@ public class Product {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Material getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(Material material) {
-        this.material = material;
     }
 
     public String getName() {
@@ -114,5 +106,13 @@ public class Product {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getMaterial_id() {
+        return material_id;
+    }
+
+    public void setMaterial_id(String material_id) {
+        this.material_id = material_id;
     }
 }

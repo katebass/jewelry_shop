@@ -27,8 +27,8 @@ public class MaterialRestController {
 
     @CrossOrigin
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    JsonResponse getMaterialsList() {
-        return new JsonResponse(materialService.getAll());
+    List<Material> getMaterialsList() {
+        return materialService.getAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

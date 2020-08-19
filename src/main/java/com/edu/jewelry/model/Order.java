@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class Order {
     @Id
     private String id;
-    private Product product;
+    private String product_id;
     private String saleDate;
     private String customerName;
     private String customerPatronymic;
@@ -22,11 +22,11 @@ public class Order {
     public Order() {
     }
 
-    public Order(String id, Product product, String saleDate, String customerName,
+    public Order(String id, String product_id, String saleDate, String customerName,
                  String customerPatronymic, String customerSurname,
                  LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.product = product;
+        this.product_id = product_id;
         this.saleDate = saleDate;
         this.customerName = customerName;
         this.customerPatronymic = customerPatronymic;
@@ -35,19 +35,19 @@ public class Order {
         this.updatedAt = updatedAt;
     }
 
-    public Order(String id, Product product, String saleDate, String customerName,
+    public Order(String id, String product_id, String saleDate, String customerName,
                  String customerPatronymic, String customerSurname) {
         this.id = id;
-        this.product = product;
+        this.product_id = product_id;
         this.saleDate = saleDate;
         this.customerName = customerName;
         this.customerPatronymic = customerPatronymic;
         this.customerSurname = customerSurname;
     }
 
-    public Order(Product product, String saleDate, String customerName,
+    public Order(String product_id, String saleDate, String customerName,
                  String customerPatronymic, String customerSurname) {
-        this.product = product;
+        this.product_id = product_id;
         this.saleDate = saleDate;
         this.customerName = customerName;
         this.customerPatronymic = customerPatronymic;
@@ -60,14 +60,6 @@ public class Order {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public String getSaleDate() {
@@ -116,5 +108,13 @@ public class Order {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(String product_id) {
+        this.product_id = product_id;
     }
 }
